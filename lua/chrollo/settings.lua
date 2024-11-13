@@ -1,3 +1,4 @@
+vim.g.auto_reload = false
 vim.o.clipboard = "unnamedplus"
 vim.o.number = true
 vim.o.relativenumber = true
