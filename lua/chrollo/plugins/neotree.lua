@@ -11,7 +11,7 @@ return {
 			filesystem = {
 				filtered_items = {
 					visible = true,
-					hide_by_name = {
+					never_show = {
 						".git",
 					},
 				},
