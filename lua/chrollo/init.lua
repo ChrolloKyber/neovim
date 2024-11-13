@@ -1,3 +1,3 @@
-require('chrollo.maps')
-require('chrollo.settings')
-require('chrollo.lazy')
+require("chrollo.maps")
+require("chrollo.settings")
+require("chrollo.lazy")
