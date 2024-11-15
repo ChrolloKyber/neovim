@@ -129,4 +129,26 @@ return {
 	{
 		"RRethy/vim-illuminate",
 	},
+
+	{
+		"ckipp01/nvim-jenkinsfile-linter",
+		requires = { "nvim-lua/plenary.nvim" },
+		config = function()
+			-- Create an autocommand group
+			vim.api.nvim_create_augroup("JenkinsfileLinterMappings", { clear = true })
+
+			-- Set up an autocommand to map the key only for Jenkinsfile
+			vim.api.nvim_create_autocmd("BufRead", {
+				pattern = "Jenkinsfile",
+				callback = function()
+					vim.keymap.set(
+						"n",
+						"<F5>",
+						'<CMD>lua require("jenkinsfile_linter").validate()<CR>',
+						{ silent = true, desc = "Start jenkinsfile linter", buffer = 0 }
+					)
+				end,
+			})
+		end,
+	},
 }
