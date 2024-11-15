@@ -19,7 +19,7 @@ return {
 
       highlight = {
         enable = true,
-        disable = { "gitcommit" },
+        disable = { "gitcommit", "markdown" },
         additional_vim_regex_highlighting = { "markdown" },
       },
     })
