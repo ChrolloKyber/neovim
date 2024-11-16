@@ -11,7 +11,7 @@ return {
       event_handlers = {
         {
           event = "neo_tree_buffer_enter",
-          handler = function(arg)
+          handler = function()
             vim.o.relativenumber = true
           end,
         }
