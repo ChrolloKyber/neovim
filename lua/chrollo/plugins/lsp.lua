@@ -68,6 +68,15 @@ return {
               },
             })
           end,
+
+          ["terraformls"] = function()
+            local lspconfig = require("lspconfig")
+            lspconfig.terraformls.setup({
+              on_init = function(client, _)
+                client.server_capabilities.semanticTokensProvider = nil -- turn off semantic tokens
+              end,
+            })
+          end
         },
       })
 
@@ -108,8 +117,6 @@ return {
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
         callback = function(event)
-          local client = vim.lsp.get_client_by_id(event.data.client_id)
-          client.server_capabilities.semanticTokensProvider = nil
           local map = function(keys, func, desc, mode)
             mode = mode or 'n'
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
