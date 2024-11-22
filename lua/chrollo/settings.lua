@@ -20,7 +20,7 @@ vim.o.smartcase = true
 vim.o.splitbelow = true
 vim.o.splitright = true
 vim.o.cursorline = true
-vim.opt_local.conceallevel = 1
+vim.o.conceallevel = 1
 
 vim.api.nvim_create_autocmd("TextYankPost", {
 	group = vim.api.nvim_create_augroup("highlight_yank", {}),
