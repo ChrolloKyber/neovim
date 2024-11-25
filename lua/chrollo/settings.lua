@@ -19,7 +19,8 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.splitbelow = true
 vim.o.splitright = true
-vim.o.cursorline = true
+vim.o.cursorline = false
+vim.o.cmdheight = 0
 vim.o.conceallevel = 1
 
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -28,19 +29,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	pattern = "*",
 	callback = function()
 		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 100 })
-	end,
-})
-
--- Toggle command line visibility
-vim.api.nvim_create_autocmd("InsertEnter", {
-	callback = function()
-		vim.o.cmdheight = 0
-	end,
-})
-
-vim.api.nvim_create_autocmd("InsertLeave", {
-	callback = function()
-		vim.o.cmdheight = 1
 	end,
 })
 
