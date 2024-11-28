@@ -9,3 +9,4 @@ vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move cursor to left window"
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move cursor to bottom window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move cursor to top window" })
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move cursor to right window" })
+vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })

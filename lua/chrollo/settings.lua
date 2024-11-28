@@ -23,6 +23,9 @@ vim.o.splitright = true
 vim.o.cursorline = false
 vim.o.cmdheight = 0
 vim.o.conceallevel = 1
+vim.o.list = true
+vim.o.listchars = "tab:» ,trail:·,nbsp:␣,extends:."
+vim.o.inccommand = 'split'
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("highlight_yank", {}),
