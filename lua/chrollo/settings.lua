@@ -1,5 +1,7 @@
 vim.g.auto_reload = false
-vim.o.clipboard = "unnamedplus"
+vim.schedule(function()
+  vim.opt.clipboard = 'unnamedplus'
+end)
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.scrolloff = 10
@@ -9,6 +11,7 @@ vim.o.tabstop = 2
 vim.o.softtabstop = 2
 vim.o.shiftwidth = 2
 vim.o.smartindent = true
+vim.o.breakindent = true
 vim.o.autoindent = true
 vim.o.termguicolors = true
 vim.o.wrap = false
@@ -24,6 +27,7 @@ vim.o.cursorline = false
 vim.o.cmdheight = 0
 vim.o.conceallevel = 1
 vim.o.inccommand = 'split'
+vim.opt.signcolumn = 'yes'
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("highlight_yank", {}),

@@ -1,5 +1,5 @@
 vim.keymap.set("n", "<leader>pv", "<CMD>Ex<CR>", { silent = true, desc = "Launch Netrw" })
-vim.keymap.set("n", "<ESC>", "<CMD>set nohlsearch<CR>", { silent = true, desc = "Clear search highlight" })
+vim.keymap.set("n", "<ESC>", "<CMD>set hlsearch!<CR>", { silent = true, desc = "Clear search highlight" })
 vim.keymap.set("n", "<C-`>", "<CMD>split term://zsh<CR>", { silent = true, desc = "Launch terminal at bottom" })
 vim.keymap.set("n", "<A-h>", "<C-w><C->>", { desc = "Increase width of the split" })
 vim.keymap.set("n", "<A-l>", "<C-w><C-<>", { desc = "Decrease width of the split" })
