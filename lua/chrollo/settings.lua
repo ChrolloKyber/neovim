@@ -18,7 +18,6 @@ vim.o.wrap = false
 vim.o.backup = false
 vim.o.undofile = true
 vim.o.incsearch = true
-vim.o.hlsearch = false
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.splitbelow = true

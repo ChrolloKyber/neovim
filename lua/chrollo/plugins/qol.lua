@@ -19,9 +19,18 @@ return {
   },
 
   {
-    "NvChad/nvim-colorizer.lua",
+    "catgoose/nvim-colorizer.lua",
     config = function()
-      require("colorizer").setup()
+      require("colorizer").setup({
+        user_default_options = {
+          names = false,
+          RRGGBBAA = true,
+          AARRGGBB = true,
+          rgb_fn = true,
+          hsl_fn = true,
+          sass = { enable = false, parsers = { "css" } },
+        },
+      })
     end,
   },
 
