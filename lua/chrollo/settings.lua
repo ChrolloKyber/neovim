@@ -22,11 +22,16 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.splitbelow = true
 vim.o.splitright = true
-vim.o.cursorline = false
+vim.o.cursorline = true
 vim.o.cmdheight = 0
 vim.o.conceallevel = 1
 vim.o.inccommand = 'split'
-vim.opt.signcolumn = 'yes'
+vim.o.signcolumn = 'yes'
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+vim.o.foldlevel = 3
+vim.o.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("highlight_yank", {}),
