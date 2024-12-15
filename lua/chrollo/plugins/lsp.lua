@@ -21,7 +21,16 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      "j-hui/fidget.nvim"
+      "j-hui/fidget.nvim",
+      {
+        "folke/lazydev.nvim",
+        ft = "lua",
+        opts = {
+          library = {
+            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+          },
+        },
+      },
     },
     lazy = false,
     opts = { lsp = { auto_attach = true } },
@@ -44,23 +53,10 @@ return {
             })
           end,
 
-          ["lua_ls"] = function()
-            lspconfig.lua_ls.setup({
-              capabilities = capabilities,
-              settings = {
-                Lua = {
-                  diagnostics = {
-                    globals = { "vim", "it", "describe", "before_each", "after_each" },
-                  },
-                },
-              },
-            })
-          end,
-
           ["terraformls"] = function()
             lspconfig.terraformls.setup({
               on_init = function(client, _)
-                client.server_capabilities.semanticTokensProvider = nil -- turn off semantic tokens
+                client.server_capabilities.semanticTokensProvider = nil
               end,
             })
           end

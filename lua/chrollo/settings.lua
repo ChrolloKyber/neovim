@@ -1,6 +1,6 @@
 vim.g.auto_reload = false
 vim.schedule(function()
-	vim.opt.clipboard = "unnamedplus"
+  vim.opt.clipboard = "unnamedplus"
 end)
 vim.o.number = true
 vim.o.relativenumber = true
@@ -34,16 +34,16 @@ vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 vim.api.nvim_create_autocmd("TextYankPost", {
-	group = vim.api.nvim_create_augroup("highlight_yank", {}),
-	desc = "Hightlight selection on yank",
-	pattern = "*",
-	callback = function()
-		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 100 })
-	end,
+  group = vim.api.nvim_create_augroup("highlight_yank", {}),
+  desc = "Hightlight selection on yank",
+  pattern = "*",
+  callback = function()
+    vim.highlight.on_yank({ higroup = "IncSearch", timeout = 100 })
+  end,
 })
 
 vim.api.nvim_create_autocmd("VimEnter", {
-	callback = function()
-		require("lazy").update({ show = false })
-	end,
+  callback = function()
+    require("lazy").update({ show = false })
+  end,
 })
