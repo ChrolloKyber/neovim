@@ -31,6 +31,14 @@ return {
           },
         },
       },
+      {
+        "SmiteshP/nvim-navbuddy",
+        dependencies = {
+          "SmiteshP/nvim-navic",
+          "MunifTanjim/nui.nvim"
+        },
+        opts = { lsp = { auto_attach = true } }
+      },
     },
     lazy = false,
     opts = { lsp = { auto_attach = true } },
@@ -53,16 +61,19 @@ return {
             })
           end,
 
-          ["terraformls"] = function()
-            lspconfig.terraformls.setup({
-              on_init = function(client, _)
-                client.server_capabilities.semanticTokensProvider = nil
-              end,
+          ["lua_ls"] = function()
+            lspconfig.lua_ls.setup({
+              capabilities = capabilities
             })
-          end
+          end,
         }
       })
 
+      lspconfig.terraformls.setup({
+        on_init = function(client, _)
+          client.server_capabilities.semanticTokensProvider = nil -- turn off semantic tokens
+        end,
+      })
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
         callback = function()
@@ -72,6 +83,7 @@ return {
           vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "LSP: Go to References" })
           vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP: Code Actions" })
           vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "LSP: Rename" })
+          vim.keymap.set("n", "<A-n>", "<CMD>Navbuddy<CR>", { desc = "LSP: Launch Navbuddy" })
         end
       })
     end,
@@ -87,6 +99,7 @@ return {
           lua = { "stylua" },
           json = { "prettier" },
           python = { "ruff_format" },
+          terraform = { "terraform_fmt" },
         },
         format_on_save = {
           timeout_ms = 500,
