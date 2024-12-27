@@ -24,12 +24,11 @@ vim.o.splitbelow = true
 vim.o.splitright = true
 vim.o.cursorline = true
 vim.o.cmdheight = 0
-vim.o.conceallevel = 1
 vim.o.inccommand = 'split'
 vim.o.signcolumn = 'yes'
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"
-vim.o.foldlevel = 3
+vim.o.foldlevel = 99
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣', extends = '.' }
 

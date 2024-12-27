@@ -100,6 +100,7 @@ return {
           json = { "prettier" },
           python = { "ruff_format" },
           terraform = { "terraform_fmt" },
+          markdown = { "prettier", "markdownlint", "cbfmt" },
         },
         format_on_save = {
           timeout_ms = 500,
