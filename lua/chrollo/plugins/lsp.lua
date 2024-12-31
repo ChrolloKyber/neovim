@@ -35,38 +35,38 @@ return {
         "SmiteshP/nvim-navbuddy",
         dependencies = {
           "SmiteshP/nvim-navic",
-          "MunifTanjim/nui.nvim"
+          "MunifTanjim/nui.nvim",
         },
-        opts = { lsp = { auto_attach = true } }
+        opts = { lsp = { auto_attach = true } },
       },
     },
     lazy = false,
     opts = { lsp = { auto_attach = true } },
     config = function()
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
       require("fidget").setup({
-        notification = { window = { winblend = 0 }, },
+        notification = { window = { winblend = 0 } },
       })
       local lspconfig = require("lspconfig")
       lspconfig.html.setup({
-        capabilities = capabilities
+        capabilities = capabilities,
       })
 
       require("mason-lspconfig").setup({
         handlers = {
           function(server_name)
             lspconfig[server_name].setup({
-              capabilities = capabilities
+              capabilities = capabilities,
             })
           end,
 
           ["lua_ls"] = function()
             lspconfig.lua_ls.setup({
-              capabilities = capabilities
+              capabilities = capabilities,
             })
           end,
-        }
+        },
       })
 
       lspconfig.terraformls.setup({
@@ -74,8 +74,8 @@ return {
           client.server_capabilities.semanticTokensProvider = nil -- turn off semantic tokens
         end,
       })
-      vim.api.nvim_create_autocmd('LspAttach', {
-        group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
+      vim.api.nvim_create_autocmd("LspAttach", {
+        group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
         callback = function()
           vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP: Hover" })
           vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "LSP: Go to Definition" })
@@ -84,7 +84,7 @@ return {
           vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP: Code Actions" })
           vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "LSP: Rename" })
           vim.keymap.set("n", "<A-n>", "<CMD>Navbuddy<CR>", { desc = "LSP: Launch Navbuddy" })
-        end
+        end,
       })
     end,
   },
@@ -100,11 +100,11 @@ return {
           json = { "prettier" },
           python = { "ruff_format" },
           terraform = { "terraform_fmt" },
-          markdown = { "prettier", "markdownlint", "cbfmt" },
+          markdown = { "prettier", "cbfmt" },
         },
         format_on_save = {
           timeout_ms = 500,
-          stop_after_first = true,
+          stop_after_first = false,
           lsp_format = "fallback",
         },
         default_format_opts = {
@@ -117,6 +117,6 @@ return {
     "numToStr/Comment.nvim",
     config = function()
       require("Comment").setup()
-    end
+    end,
   },
 }
