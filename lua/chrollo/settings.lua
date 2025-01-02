@@ -30,4 +30,5 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 99
 vim.opt.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣", extends = "." }
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣", extends = "›", precedes = "‹", eol = "↲" }
+vim.opt.showbreak = "↪"
