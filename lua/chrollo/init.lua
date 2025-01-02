@@ -4,4 +4,4 @@ vim.g.maplocalleader = " "
 require("chrollo.lazy")
 require("chrollo.settings")
 require("chrollo.maps")
-require("chrollo.ft")
+require("chrollo.autocommand")
