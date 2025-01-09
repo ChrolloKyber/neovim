@@ -14,7 +14,7 @@ return {
           handler = function()
             vim.o.relativenumber = true
           end,
-        }
+        },
       },
       filesystem = {
         filtered_items = {

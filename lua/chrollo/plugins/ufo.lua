@@ -10,14 +10,23 @@ return {
       dynamicRegistration = false,
       lineFoldingOnly = true,
     }
-    local language_servers = require("lspconfig").util.available_servers() -- or list servers manually like {'gopls', 'clangd'}
+    local language_servers = require("lspconfig").util.available_servers()
     for _, ls in ipairs(language_servers) do
       require("lspconfig")[ls].setup({
         capabilities = capabilities,
       })
     end
-    require("ufo").setup()
-    vim.keymap.set("n", "zR", require("ufo").openAllFolds, { desc = "UFO: Open all folds" })
-    vim.keymap.set("n", "zM", require("ufo").closeAllFolds, { desc = "UFO: Close all folds" })
+    require("ufo").setup({
+      preview = {
+        win_config = {
+          border = { "", "─", "", "", "", "─", "", "" },
+          winhighlight = "Normal:Folded",
+          winblend = 0,
+        },
+      },
+      vim.keymap.set("n", "zR", require("ufo").openAllFolds, { desc = "UFO: Open all folds" }),
+      vim.keymap.set("n", "zM", require("ufo").closeAllFolds, { desc = "UFO: Close all folds" }),
+      vim.keymap.set("n", "zK", require("ufo").peekFoldedLinesUnderCursor, { desc = "UFO: preview fold" }),
+    })
   end,
 }
