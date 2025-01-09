@@ -70,6 +70,7 @@ return {
       })
 
       lspconfig.terraformls.setup({
+        cmd = { "terraform-ls", "serve", "-log-file", "/dev/null" },
         on_init = function(client, _)
           client.server_capabilities.semanticTokensProvider = nil -- turn off semantic tokens
         end,

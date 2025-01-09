@@ -26,9 +26,10 @@ vim.opt.cursorline = true
 vim.opt.cmdheight = 0
 vim.opt.inccommand = "split"
 vim.opt.signcolumn = "yes"
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldlevel = 99
+vim.o.foldcolumn = "1"
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣", extends = "›", precedes = "‹", eol = "↲" }
 vim.opt.showbreak = "↪"
