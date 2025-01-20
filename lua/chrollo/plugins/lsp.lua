@@ -2,21 +2,12 @@ return {
   {
     "williamboman/mason.nvim",
     lazy = false,
+    dependencies = {
+      "williamboman/mason-lspconfig.nvim",
+    },
     config = function()
       require("mason").setup()
     end,
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    lazy = false,
-    opts = {
-      auto_install = true,
-    },
-    ensure_installed = {
-      "lua_ls",
-      "gopls",
-      "terraformls",
-    },
   },
   {
     "neovim/nvim-lspconfig",
@@ -54,6 +45,12 @@ return {
       })
 
       require("mason-lspconfig").setup({
+        ensure_installed = {
+          "lua_ls",
+          "gopls",
+          "terraformls",
+        },
+        automatic_installation = false,
         handlers = {
           function(server_name)
             lspconfig[server_name].setup({
@@ -102,6 +99,7 @@ return {
           python = { "ruff_format" },
           terraform = { "terraform_fmt" },
           markdown = { "prettier", "cbfmt" },
+          yaml = { "prettier" },
         },
         format_on_save = {
           timeout_ms = 500,
