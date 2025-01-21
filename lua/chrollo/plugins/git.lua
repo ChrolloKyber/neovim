@@ -7,6 +7,13 @@ return {
   },
 
   {
+    "sindrets/diffview.nvim",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons"
+    }
+  },
+
+  {
     "kdheepak/lazygit.nvim",
     lazy = true,
 
