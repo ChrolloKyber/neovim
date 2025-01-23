@@ -63,6 +63,13 @@ return {
               capabilities = capabilities,
             })
           end,
+
+          ["yamlls"] = function()
+            lspconfig.yamlls.setup({
+              capabilities = capabilities,
+              require("yaml-companion").setup({}),
+            })
+          end,
         },
       })
 
@@ -87,7 +94,7 @@ return {
     end,
   },
   {
-    "RRethy/vim-illuminate",
+    "anhpt379/nvim-cursorword",
   },
   {
     "stevearc/conform.nvim",
