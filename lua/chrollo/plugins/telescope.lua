@@ -38,7 +38,7 @@ return {
       vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
       vim.keymap.set("n", "<leader>fs", builtin.live_grep, { desc = "Telescope live grep" })
       vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "Telescope buffers" })
-      vim.keymap.set("n", ":", "<CMD>:Telescope cmdline<CR>", { noremap = true, desc = "Cmdline" })
+      vim.keymap.set("n", "Q", "<CMD>:Telescope cmdline<CR>", { noremap = true, desc = "Cmdline" })
     end,
   },
 }
