@@ -35,6 +35,41 @@ return {
     opts = { lsp = { auto_attach = true } },
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      require("nvim-navic").setup({
+        lsp = {
+          auto_attach = true,
+          preference = nil,
+        },
+        icons = {
+          File = " ",
+          Module = " ",
+          Namespace = " ",
+          Package = " ",
+          Class = " ",
+          Method = " ",
+          Property = " ",
+          Field = " ",
+          Constructor = " ",
+          Enum = " ",
+          Interface = " ",
+          Function = " ",
+          Variable = " ",
+          Constant = " ",
+          String = " ",
+          Number = " ",
+          Boolean = " ",
+          Array = " ",
+          Object = " ",
+          Key = " ",
+          Null = " ",
+          EnumMember = " ",
+          Struct = " ",
+          Event = " ",
+          Operator = " ",
+          TypeParameter = " ",
+        },
+      })
+      vim.o.winbar = " %{%v:lua.vim.fn.expand('%f')%}  %{%v:lua.require'nvim-navic'.get_location()%}"
 
       require("fidget").setup({
         notification = { window = { winblend = 0 } },
