@@ -6,7 +6,17 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     lazy = false,
     config = function()
-      require("oil").setup()
+      require("oil").setup({
+        columns = {
+          "icon",
+          "permission",
+          "size",
+          "mtime",
+        },
+        view_options = {
+          show_hidden = true,
+        },
+      })
       vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Launch Oil" })
     end,
   },
