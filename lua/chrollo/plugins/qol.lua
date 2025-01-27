@@ -55,7 +55,7 @@ return {
         sections = {
           lualine_b = { "branch", "diff" },
           lualine_c = {},
-          lualine_x = {},
+          lualine_x = { "filename" },
           lualine_y = {},
           lualine_z = { { "filetype", colored = false } },
         },
