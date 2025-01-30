@@ -8,6 +8,14 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 })
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = "*.go",
+  callback = function()
+    vim.o.softtabstop = 4
+    vim.o.shiftwidth = 4
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "*.tpl",
   callback = function()
     if vim.bo.filetype == "smarty" then
@@ -42,7 +50,6 @@ vim.keymap.set("n", "Y", function()
   cursorPreYank = vim.api.nvim_win_get_cursor(0)
   return "y$"
 end, { expr = true })
-
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("highlight_yank", {}),
