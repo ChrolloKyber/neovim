@@ -12,6 +12,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   callback = function()
     vim.o.softtabstop = 4
     vim.o.shiftwidth = 4
+    vim.o.expandtab = false
   end,
 })
 
