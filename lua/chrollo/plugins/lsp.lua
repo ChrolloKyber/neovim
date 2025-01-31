@@ -102,7 +102,6 @@ return {
           ["yamlls"] = function()
             lspconfig.yamlls.setup({
               capabilities = capabilities,
-              require("yaml-companion").setup({}),
             })
           end,
         },
