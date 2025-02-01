@@ -8,11 +8,34 @@ return {
     tag = "0.1.8",
     config = function()
       local builtin = require("telescope.builtin")
+      local actions = require("telescope.actions")
+      local layout = require("telescope.actions.layout")
       require("telescope").setup({
         extensions = {
           fzy_native = {
             override_generic_sorter = false,
             override_file_sorter = true,
+          },
+        },
+        defaults = {
+          file_ignore_patterns = { ".git/" },
+          layout_strategy = "flex",
+          layout_config = {
+            prompt_position = "top",
+            vertical = {
+              prompt_position = "top",
+              preview_cutoff = 0,
+            },
+          },
+          mappings = {
+            i = {
+              ["<esc>"] = builtin.close,
+              ["<C-x>"] = actions.delete_buffer + actions.move_to_top,
+              ["<C-p>"] = layout.toggle_preview,
+            },
+            n = {
+              ["<C-p>"] = layout.toggle_preview,
+            },
           },
         },
       })
