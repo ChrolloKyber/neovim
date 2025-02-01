@@ -16,6 +16,7 @@ return {
           ["@markup.heading.6.markdown"] = { fg = "#d3869b", bg = "", bold = true },
           SignColumn = { bg = "" },
           FoldColumn = { bg = "" },
+          FloatBorder = { link = "Normal" },
         },
       })
       vim.cmd.colorscheme("gruvbox")

@@ -122,7 +122,7 @@ return {
           vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "LSP: Go to References" })
           vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP: Code Actions" })
           vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "LSP: Rename" })
-          vim.keymap.set("n", "<A-n>", "<CMD>Navbuddy<CR>", { desc = "LSP: Launch Navbuddy" })
+          vim.keymap.set("n", "<A-z>", "<CMD>Navbuddy<CR>", { desc = "LSP: Launch Navbuddy" })
         end,
       })
     end,
