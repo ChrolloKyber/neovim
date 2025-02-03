@@ -141,6 +141,8 @@ return {
           terraform = { "terraform_fmt" },
           markdown = { "prettier", "cbfmt" },
           yaml = { "prettier" },
+          html = { "prettier" },
+          css = { "prettier" },
         },
         format_on_save = {
           timeout_ms = 500,
