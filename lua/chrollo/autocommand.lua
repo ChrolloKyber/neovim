@@ -1,5 +1,6 @@
 local filetype = vim.bo.filetype
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+local autocmd = vim.api.nvim_create_autocmd
+autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "*.tf",
   callback = function()
     if filetype == "tf" then
@@ -8,7 +9,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "*.go",
   callback = function()
     vim.o.softtabstop = 4
@@ -17,7 +18,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "*.tpl",
   callback = function()
     if filetype == "smarty" then
@@ -26,14 +27,14 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "docker-compose.yaml", "docker-compose.yml", "compose.yaml", "compose.yml" },
   callback = function()
     filetype = "yaml.docker-compose"
   end,
 })
 
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "*.md",
   callback = function()
     vim.bo.shiftwidth = 2
@@ -42,18 +43,19 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 
 -- Save cursor position while yanking
 local cursorPreYank
+local map = vim.keymap.set
 
-vim.keymap.set({ "n", "x" }, "y", function()
+map({ "n", "x" }, "y", function()
   cursorPreYank = vim.api.nvim_win_get_cursor(0)
   return "y"
 end, { expr = true })
 
-vim.keymap.set("n", "Y", function()
+map("n", "Y", function()
   cursorPreYank = vim.api.nvim_win_get_cursor(0)
   return "y$"
 end, { expr = true })
 
-vim.api.nvim_create_autocmd("TextYankPost", {
+autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("highlight_yank", {}),
   desc = "Hightlight selection on yank",
   pattern = "*",
@@ -65,13 +67,13 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
-vim.api.nvim_create_autocmd("VimEnter", {
+autocmd("VimEnter", {
   callback = function()
     require("lazy").update({ show = false })
   end,
 })
 -- Restore cursor position
-vim.api.nvim_create_autocmd("BufReadPost", {
+autocmd("BufReadPost", {
   callback = function(args)
     local mark = vim.api.nvim_buf_get_mark(args.buf, '"')
     local line_count = vim.api.nvim_buf_line_count(args.buf)
