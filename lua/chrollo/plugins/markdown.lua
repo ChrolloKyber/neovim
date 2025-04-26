@@ -12,6 +12,10 @@ return {
           name = "aws",
           path = "~/AWS SAA",
         },
+        {
+          name = "kannada",
+          path = "~/Kannada",
+        },
       },
       ui = {
         enable = false,
@@ -25,7 +29,7 @@ return {
     build = "deno task --quiet build:fast",
     config = function()
       require("peek").setup({
-        app = "zen-browser",
+        app = "firefox",
       })
       vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
       vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})

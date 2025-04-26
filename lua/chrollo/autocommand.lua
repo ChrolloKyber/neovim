@@ -1,11 +1,9 @@
-local filetype = vim.bo.filetype
 local autocmd = vim.api.nvim_create_autocmd
+
 autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "*.tf",
   callback = function()
-    if filetype == "tf" then
-      filetype = "terraform"
-    end
+    vim.bo.filetype = "terraform"
   end,
 })
 
@@ -21,16 +19,21 @@ autocmd({ "BufRead", "BufNewFile" }, {
 autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "*.tpl",
   callback = function()
-    if filetype == "smarty" then
-      filetype = "json"
-    end
+    vim.bo.filetype = "json"
+  end,
+})
+
+autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "jenkinsfile*", "Jenkinsfile*" },
+  callback = function()
+    vim.bo.filetype = "groovy"
   end,
 })
 
 autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "docker-compose.yaml", "docker-compose.yml", "compose.yaml", "compose.yml" },
   callback = function()
-    filetype = "yaml.docker-compose"
+    vim.bo.filetype = "yaml.docker-compose"
   end,
 })
 
