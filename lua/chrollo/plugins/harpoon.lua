@@ -7,6 +7,7 @@ return {
     local harpoon = require("harpoon")
 
     harpoon:setup()
+    harpoon:extend(require("harpoon.extensions").builtins.command_on_nav("UfoEnableFold"))
 
     vim.keymap.set("n", "<leader>a", function()
       harpoon:list():add()
