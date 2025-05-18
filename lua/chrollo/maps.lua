@@ -1,7 +1,7 @@
 local map = vim.keymap.set
 map("n", "<leader>pv", "<CMD>Ex<CR>", { silent = true, desc = "Launch Netrw" })
 map("n", "<ESC>", "<CMD>noh<CR>", { silent = true, desc = "Clear search highlight" })
-map("n", "<C-`>", "<CMD>split term://zsh<CR>", { silent = true, desc = "Launch terminal at bottom" })
+map("n", "<C-`>", "<CMD>split term://$SHELL<CR>", { silent = true, desc = "Launch terminal at bottom" })
 map("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 map({ "n", "i" }, "<C-s>", "<CMD>w<CR>", { silent = true, desc = "Save file" })
 map({ "n", "i" }, "<C-q>", "<CMD>q<CR>", { silent = true, desc = "Quit NeoVim" })
