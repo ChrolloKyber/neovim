@@ -38,6 +38,13 @@ autocmd({ "BufRead", "BufNewFile" }, {
 })
 
 autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = ".gitconfig*",
+  callback = function()
+    vim.bo.filetype = "gitconfig"
+  end,
+})
+
+autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "*.md",
   callback = function()
     vim.bo.shiftwidth = 2
