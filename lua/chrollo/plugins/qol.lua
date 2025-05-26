@@ -97,13 +97,19 @@ return {
     "m4xshen/hardtime.nvim",
     lazy = false,
     dependencies = { "MunifTanjim/nui.nvim" },
-    opts = {},
+    opts = {
+      disable_mouse = false,
+    },
   },
 
   {
     "rcarriga/nvim-notify",
     config = function()
       vim.notify = require("notify")
+      require("notify").setup({
+        background_colour = "#000000",
+        merge_duplicates = true,
+      })
     end,
   },
 }
