@@ -38,7 +38,6 @@ return {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      local navic = require("nvim-navic")
       local custom_gruvbox = require("lualine.themes.gruvbox-material")
       custom_gruvbox.normal.a.bg = "#32302f"
       custom_gruvbox.normal.a.fg = "#ddc7a1"
@@ -47,10 +46,6 @@ return {
       require("lualine").setup({
         options = {
           theme = custom_gruvbox,
-          disabled_filetypes = {
-            statusline = { "neo-tree" },
-            winbar = { "neo-tree" },
-          },
         },
         sections = {
           lualine_b = { "branch", "diff" },

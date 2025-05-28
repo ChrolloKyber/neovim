@@ -70,7 +70,7 @@ return {
           TypeParameter = " ",
         },
       })
-      vim.o.winbar = " %{%v:lua.vim.fn.expand('%t')%}  %{%v:lua.require'nvim-navic'.get_location()%}"
+      vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
       require("fidget").setup({
         notification = { window = { winblend = 0 } },
       })
