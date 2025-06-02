@@ -86,6 +86,7 @@ return {
           "terraformls",
         },
         automatic_installation = false,
+        automatic_enable = true,
         handlers = {
           function(server_name)
             lspconfig[server_name].setup({
@@ -95,12 +96,6 @@ return {
 
           ["lua_ls"] = function()
             lspconfig.lua_ls.setup({
-              capabilities = capabilities,
-            })
-          end,
-
-          ["yamlls"] = function()
-            lspconfig.yamlls.setup({
               capabilities = capabilities,
             })
           end,
@@ -128,7 +123,21 @@ return {
     end,
   },
   {
-    "anhpt379/nvim-cursorword",
+    "ya2s/nvim-cursorline",
+    config = function()
+      require("nvim-cursorline").setup({
+        cursorline = {
+          enable = true,
+          timeout = 1000,
+          number = false,
+        },
+        cursorword = {
+          enable = true,
+          min_length = 3,
+          hl = { underline = true },
+        },
+      })
+    end,
   },
   {
     "stevearc/conform.nvim",
@@ -139,7 +148,7 @@ return {
           json = { "prettier" },
           python = { "ruff_format" },
           terraform = { "terraform_fmt" },
-          markdown = { "prettier", "cbfmt" },
+          markdown = { "prettier" },
           yaml = { "prettier" },
           html = { "prettier" },
           css = { "prettier" },
