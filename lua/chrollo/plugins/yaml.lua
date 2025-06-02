@@ -40,7 +40,7 @@ return {
               url = "",
             },
             schemas = {
-              kubernetes = { "k8s**.yaml", "k8s**.yml", "kube*/*.yaml", "kube*/*.yml" },
+              kubernetes = { "k8s**.yaml", "k8s**.yml", "kube**.yaml", "kube**.yml" },
             },
             schemaDownload = { enable = true },
             trace = { server = "debug" },
