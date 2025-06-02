@@ -36,7 +36,7 @@ return {
 
   {
     "nvim-lualine/lualine.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    dependencies = { "nvim-tree/nvim-web-devicons", "ChrolloKyber/yaml-companion.nvim" },
     config = function()
       local function get_schema()
         local schema = require("yaml-companion").get_buf_schema(0)
