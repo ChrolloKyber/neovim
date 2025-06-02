@@ -16,6 +16,10 @@ return {
           name = "kannada",
           path = "~/Kannada",
         },
+        {
+          name = "Notes",
+          path = "~/Notes",
+        },
       },
       ui = {
         enable = false,
