@@ -16,7 +16,7 @@ return {
       },
       schemas = {
         {
-          name = "Kubernetes 1.33.1",
+          name = "Kubernetes",
           uri = "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.33.1-standalone-strict/all.json",
         },
       },
@@ -28,13 +28,20 @@ return {
           redhat = { telemetry = { enabled = false } },
           yaml = {
             validate = true,
-            format = { enable = true },
+            completion = true,
+            format = {
+              enable = true,
+              singleQuote = false,
+              bracketSpacing = true,
+            },
             hover = true,
             schemaStore = {
               enable = false,
               url = "",
             },
-            schemas = { require("schemastore").yaml.schemas() },
+            schemas = {
+              kubernetes = { "k8s**.yaml", "k8s**.yml", "kube*/*.yaml", "kube*/*.yml" },
+            },
             schemaDownload = { enable = true },
             trace = { server = "debug" },
           },
