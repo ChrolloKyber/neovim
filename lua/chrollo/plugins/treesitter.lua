@@ -10,6 +10,8 @@ return {
         "lua",
         "python",
       },
+      ignore_install = {},
+      modules = {},
       sync_install = false,
 
       auto_install = true,

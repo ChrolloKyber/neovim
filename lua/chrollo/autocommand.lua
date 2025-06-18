@@ -27,6 +27,7 @@ autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "jenkinsfile*", "Jenkinsfile*" },
   callback = function()
     vim.bo.filetype = "groovy"
+    vim.opt.shiftwidth = 4
   end,
 })
 
