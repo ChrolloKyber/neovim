@@ -82,8 +82,6 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = {
           "lua_ls",
-          "gopls",
-          "terraformls",
         },
         automatic_installation = false,
         automatic_enable = true,
